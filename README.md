@@ -5,7 +5,7 @@ As my first electronics project and as a fighting game player, I've decided to b
 It's a small Mixbox-style controller running with a Raspberry Pi Pico and GP2040 at its core.
 It is using MX-Style switches and Kailh hotswap sockets.
 
-![Preview](Assets/zandatsu_image0.jpg)
+![Preview](Assets/zandatsu_image0.png)
 
 # Credits
 - FeralAI and sleepunit for the awesome GP2040 firmware and the help they gave me through this project
