@@ -1,15 +1,17 @@
-$fn=20;
+$fn=75;
 szMechanicalSwitch = 14; //Side size
 
 module switchSlot(arrPos, angle=0){
  szMechanicalSwitch = 14.2;
- tabWidth = szMechanicalSwitch+2.4;
+ tabWidth = szMechanicalSwitch+2;
  tabHeight = 3.5;
  
  for(pos = arrPos){
  translate(pos)
   rotate([90, 0, angle]){
    cube(szMechanicalSwitch, center=true);
+   translate([0, -6.1, 0])
+      cube(19, center=true);
    translate([0, 0, -4.05])
      cube([tabWidth, tabWidth, tabHeight], center=true);
    translate([0, 0, 4.05])
@@ -47,7 +49,7 @@ arrWasdPos = [
 ];
 
 posPico = [101, 64, 0];
-szPico = [21, 51, 0];
+szPico = [28, 60, 7.5];
 
 arrBtnPos = [
  [127.4, 33.8, 0],
@@ -66,13 +68,13 @@ arrSecBtnPos = [
  [40.6, 81.4, 0]
 ];
 
-szSecondaryButtons = 10; //Diameter
+szSecondaryButtons = 4.4; //Diameter
 angleWasd = -20;
 
 roundedCornerDiam = 10;
 arrCompRd = [roundedCornerDiam/2, roundedCornerDiam/2];
 
-arrSzPlate = [210-roundedCornerDiam, 90-roundedCornerDiam, 1.5];
+arrSzPlate = [210-roundedCornerDiam, 90-roundedCornerDiam, 5];
 
 difference(){
  union(){
@@ -89,13 +91,23 @@ difference(){
  switchSlot(arrBtnPos);
 
  for(secBtnPos = arrSecBtnPos){
-   translate(secBtnPos)
-    cylinder(d=szSecondaryButtons, h=4 , center=true);
- }
- 
-  translate([15.5, 76.71, -1])
-   rotate([0, 0, -0.6])
-   cube([41-16, szSecondaryButtons, 6], center=false);
+   translate(secBtnPos){
+    cylinder(d=szSecondaryButtons, h=arrSzPlate.z*2+1 , center=true);
+    cube(8, center=true);
+   }
 }
-
+ 
+ for(screwPos = arrScrewPos){
+    translate(screwPos){
+        cylinder(d=3.1, h=arrSzPlate.z*2, center=true);
+    }
+    translate(screwPos+[0, 0, 5]){
+        cylinder(d=6, h=4, center=true);
+    }
+}
+    translate(posPico)
+        cube(szPico, center=true);
+    translate([61.44, 86.226, 0.5])
+        cube([7, 6, 4], center=true);
+}
 //screwSlot(arrScrewPos, 2.5, 3.5);

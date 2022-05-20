@@ -9,10 +9,10 @@ arrErrorMargin = [1, 1, 1];
 iRoundedCornerDiam = 10;
 arrRoundedCornerOffset = [iRoundedCornerDiam, iRoundedCornerDiam, 0];
 
-iHeightPylone = 5.5;
+iHeightPylone = 3;
 iDiamPylone = 6;
 iBackplaneThickness = 3;
-iCaseThickness = iBackplaneThickness + 10;
+iCaseThickness = iBackplaneThickness + 1.6 + 3 +3.6;
 arrSzCase = arrSzPCB+arrBackplaneDiffXY-arrRoundedCornerOffset+[0, 0, iCaseThickness];
 arrSzHole = arrSzPCB-arrRoundedCornerOffset+arrErrorMargin+[0, 0, iCaseThickness-iBackplaneThickness+0.1];
 
